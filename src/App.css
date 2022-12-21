@@ -1,38 +1,131 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+:root {
+    --slot-size: 50px;
+    --mobile-slot-size: 20px;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .box {
+    height: var(--slot-size);
+    width: var(--slot-size);
+    background-color: #919191;
+    box-shadow: 2px 2px 0 2px #e8e8e8,
+      -2px -2px 0 2px #555,
+      0 0 0 4px #8b8b8b;
   }
-  to {
-    transform: rotate(360deg);
+
+  .back {
+    background-image: url("./bg-2.jpeg");
+    background-size: cover;
   }
-}
+
+ .resizer {
+    max-height: 500px;
+    max-width: 500px;
+    background-color: #919191;
+    box-shadow: 2px 2px 0 2px #e8e8e8,
+      -2px -2px 0 2px #555,
+      0 0 0 4px #8b8b8b;
+  }
+
+  .container {  
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: #c6c6c6;
+    box-shadow: 8px 0 0 0 #555555,
+      0 8px 0 0 #555555,
+      4px 4px 0 0 #555555,
+      -8px 0 0 0 #e8e8e8,
+      0 -8px 0 0 #e8e8e8,
+      -4px -4px 0 0 #e8e8e8,
+      0 0 0 4px #b5b4b5,
+      4px 8px 0 0 #555,
+      8px 4px 0 0 #555,
+      -4px -8px 0 0 #e8e8e8,
+      -8px -4px 0 0 #e8e8e8,
+      8px -4px 0 0 #000,
+      4px -8px 0 0 #000,
+      -8px 4px 0 0 #000,
+      -4px 8px 0 0 #000,
+      -8px -8px 0 0 #000,
+      8px 8px 0 0 #000,
+      -12px 0 0 0 #000,
+      -12px -4px 0 0 #000,
+      12px 0 0 0 #000,
+      12px 4px 0 0 #000,
+      0 -12px 0 0 #000,
+      -4px -12px 0 0 #000,
+      0 12px 0 0 #000,
+      4px 12px 0 0 #000;
+  }
+
+  .search-container {  
+   
+    background-color: #c6c6c6;
+    box-shadow: 4px 0 0 0 #555555,
+      0 4px 0 0 #555555,
+      2px 2px 0 0 #555555,
+      -4px 0 0 0 #e8e8e8,
+      0 -4px 0 0 #e8e8e8,
+      -2px -2px 0 0 #e8e8e8,
+      0 0 0 2px #b5b4b5,
+      2px 4px 0 0 #555,
+      4px 2px 0 0 #555,
+      -2px -4px 0 0 #e8e8e8,
+      -4px -2px 0 0 #e8e8e8,
+      4px -2px 0 0 #000,
+      2px -4px 0 0 #000,
+      -4px 2px 0 0 #000,
+      -2px 4px 0 0 #000,
+      -4px -4px 0 0 #000,
+      4px 4px 0 0 #000,
+      -6px 0 0 0 #000,
+      -6px -2px 0 0 #000,
+      6px 0 0 0 #000,
+      6px 2px 0 0 #000,
+      0 -6px 0 0 #000,
+      -2px -6px 0 0 #000,
+      0 6px 0 0 #000,
+      2px 6px 0 0 #000;
+  }
+  
+
+  .button {  
+    height: auto;
+    
+    background-color: #c6c6c6;
+    box-shadow: 8px 0 0 0 #555555,
+      0 8px 0 0 #555555,
+      4px 4px 0 0 #555555,
+      -8px 0 0 0 #e8e8e8,
+      0 -8px 0 0 #e8e8e8,
+      -4px -4px 0 0 #e8e8e8,
+      0 0 0 4px #b5b4b5,
+      4px 8px 0 0 #555,
+      8px 4px 0 0 #555,
+      -4px -8px 0 0 #e8e8e8,
+      -8px -4px 0 0 #e8e8e8,
+      8px -4px 0 0 #000,
+      4px -8px 0 0 #000,
+      -8px 4px 0 0 #000,
+      -4px 8px 0 0 #000,
+      -8px -8px 0 0 #000,
+      8px 8px 0 0 #000,
+      -12px 0 0 0 #000,
+      -12px -4px 0 0 #000,
+      12px 0 0 0 #000,
+      12px 4px 0 0 #000,
+      0 -12px 0 0 #000,
+      -4px -12px 0 0 #000,
+      0 12px 0 0 #000,
+      4px 12px 0 0 #000;
+  }
+
+  .minecraft {
+    font-family: 'MinecraftiaRegular';
+    font-weight: normal;
+    font-style: normal;
+    color: #555;
+    display: inline-block;
+    line-height: 30px;
+    margin-top: 0;
+  }
