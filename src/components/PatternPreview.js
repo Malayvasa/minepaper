@@ -4,7 +4,7 @@ import { SketchPicker } from 'react-color';
 import useSound from 'use-sound';
 import LevelUp from '../sounds/levelup.mp3'; 
 
-export default function PatternPreview({sketch, ingredients, sketchName, backgroundColor, onColorSelect}) {
+export default function PatternPreview({sketch, ingredients, sketchName, backgroundColor, onColorSelect, iconSize}) {
 
   const presetColors = ["#fbf8cc","#fde4cf","#ffcfd2","#f1c0e8","#cfbaf0","#a3c4f3","#90dbf4","#8eecf5","#98f5e1","#b9fbc0"];
 
@@ -37,6 +37,7 @@ export default function PatternPreview({sketch, ingredients, sketchName, backgro
                 sketch={sketch}
                 sketchName={sketchName}
                 icons={ingredients}
+                iconSize={iconSize}
                 backgroundColor={backgroundColor}
                 preview={true}
                 width={500}

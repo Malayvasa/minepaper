@@ -9,7 +9,6 @@ export function sketch(p5) {
   let preview = false;
   let id = 1;
   let backgroundColor = '#9191ff';
-  let button;
 
   //Grid
   let row, col;
@@ -57,6 +56,11 @@ export function sketch(p5) {
       p5.setup();
       p5.draw();
     }
+    if(props.iconSize){
+      spacing = props.iconSize;
+      p5.setup();
+      p5.draw();
+    }
   };
 
   const savePNG = () => {
@@ -69,16 +73,6 @@ export function sketch(p5) {
     p5.createCanvas(defaultWidth, defaultHeight);
     p5.imageMode(p5.CENTER);
     p5.angleMode(p5.DEGREES);
-
-    if (id === 1) {
-      if (preview === true) {
-        spacing = 64;
-      }
-    } else if (id === 2) {
-      if (preview === true) {
-        spacing = 96;
-      }
-    }
 
     row = p5.floor(p5.width / spacing);
 
@@ -174,11 +168,11 @@ export function sketch(p5) {
       } else {
         p5.background(backgroundColor);
       }
-      if (id == 1) {
+      if (id === 1) {
         drawRing();
-      } else if (id == 2) {
+      } else if (id === 2) {
         drawGrid();
-      } else if (id == 3) {
+      } else if (id === 3) {
         drawSpiral();
       }
        else {

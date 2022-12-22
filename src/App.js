@@ -6,6 +6,7 @@ import ItemPicker from './components/ItemPicker';
 import ItemCrafter from './components/ItemCrafter';
 import SketchSelector from './components/SketchSelector';
 import PatternPreview from './components/PatternPreview';
+import IconSizeSelector from './components/IconSizeSelector';
 
 //formula of index position of element i in a 2d array
 
@@ -13,6 +14,7 @@ function App() {
   const [selectedIngredients, setSelectedIngredients] = useState([]);
   const [sketchName, setSketchName] = useState(1);
   const [backgroundColor, setBackgroundColor] = useState('#919191');
+  const [iconSize, setIconSize] = useState(128);
 
   const handleItemSelect = (name) => {
     if (selectedIngredients.length >= 9) {
@@ -49,6 +51,11 @@ function App() {
     setBackgroundColor(color);
   };
 
+  const handleIconSize = (size) => {
+    console.log('Icon Size Changed:', size);
+    setIconSize(size);
+  };
+
 
   return (
     <div className="flex items-center p-8 min-h-screen min-w-screen back">
@@ -63,6 +70,8 @@ function App() {
             onColorClear={handleBackgroundColor}
           />
           <SketchSelector onChange={handleSketchSelect} />
+
+          <IconSizeSelector onChange={handleIconSize} />
         </div>
         </div>
 
@@ -76,6 +85,7 @@ function App() {
           sketchName={sketchName}
           backgroundColor={backgroundColor}
           onColorSelect={handleBackgroundColor}
+          iconSize={iconSize}
         />
 
         <div className=" hidden ">
@@ -86,6 +96,7 @@ function App() {
             height={1080}
             sketchName={sketchName}
             backgroundColor={backgroundColor}
+            iconSize={iconSize}
           />
         </div>
       </div>
