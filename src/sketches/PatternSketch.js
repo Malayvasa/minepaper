@@ -75,22 +75,20 @@ export function sketch(p5) {
     p5.angleMode(p5.DEGREES);
 
     row = p5.floor(p5.width / spacing);
+    col = p5.floor(p5.height / spacing);
 
+    if(icons.length % 2 === 0){
     if (row % 2 === 0) {
       row = row - 1;
     }
-
-    xgap = p5.width / row;
-
-    col = p5.floor(p5.height / spacing);
-
     if (col % 2 === 0) {
       col = col - 1;
     }
-
+  }
+    xgap = p5.width / row;
     ygap = p5.height / col;
 
-    if (preview === true) {
+    if (p5.width === p5.height) {
       col = row;
       ygap = xgap;
     }
@@ -103,7 +101,7 @@ export function sketch(p5) {
   };
 
   const drawGrid = () => {
-    p5.translate(spacing / 2, spacing / 2);
+    p5.translate(xgap/2,ygap/2);
     for (let j = 0; j < row; j++) {
       for (let k = 0; k < col; k++) {
         let pos = p5.int(j + k * row);

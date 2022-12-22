@@ -14,7 +14,8 @@ function App() {
   const [selectedIngredients, setSelectedIngredients] = useState([]);
   const [sketchName, setSketchName] = useState(1);
   const [backgroundColor, setBackgroundColor] = useState('#919191');
-  const [iconSize, setIconSize] = useState(128);
+  const [iconSize, setIconSize] = useState(32);
+  const [patternSize, setPatternSize] = useState({ width: 1920, height: 1080 });
 
   const handleItemSelect = (name) => {
     if (selectedIngredients.length >= 9) {
@@ -62,7 +63,7 @@ function App() {
       <div className="w-full flex flex-col md:flex-row justify-center gap-8 m-auto">
         <div className="flex flex-col gap-y-8 items-center">
           <ItemPicker onChange={handleItemSelect} />
-          <div className="container w-full pt-2 flex gap-x-8 items-start">
+          <div className="container w-full pt-2 pb-4 flex gap-x-8 items-start">
           <ItemCrafter
             onChange={handleItemDeselect}
             selectedIngredients={selectedIngredients}
@@ -70,9 +71,40 @@ function App() {
             onColorClear={handleBackgroundColor}
           />
           <SketchSelector onChange={handleSketchSelect} />
-
-          <IconSizeSelector onChange={handleIconSize} />
+          {
+            sketchName !== 3 && (
+              <IconSizeSelector onChange={handleIconSize} />
+            )
+          }
         </div>
+        
+        <div className='container py-4'>
+        <form className="flex flex-row justify-evenly gap-x-8 items-center">
+          <div>
+          <label className="minecraft">Width:</label>
+          <input
+            className="minecraft input pl-2 w-32 bg-transparent ml-2 outline-none py-4 h-8"
+            
+            value={patternSize.width}
+            onChange={(e) => {
+              setPatternSize({ ...patternSize, width: e.target.value });
+            }}
+          />
+          </div>
+          <div>
+          <label className="minecraft">Height :</label>
+          <input
+            className="minecraft input pl-2 w-32 bg-transparent ml-2 outline-none py-4 h-8"
+            
+            value={patternSize.height}
+            onChange={(e) => {
+              setPatternSize({ ...patternSize, height: e.target.value });
+            }}
+          />
+          </div>
+        </form>
+        </div>
+       
         </div>
 
         
@@ -92,8 +124,8 @@ function App() {
           <ReactP5Wrapper
             sketch={Pattern.sketch}
             icons={selectedIngredients}
-            width={1920}
-            height={1080}
+            width={patternSize.width}
+            height={patternSize.height}
             sketchName={sketchName}
             backgroundColor={backgroundColor}
             iconSize={iconSize}

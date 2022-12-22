@@ -29,8 +29,6 @@
 
 
   .container {  
-    
-    padding-bottom: 15px;
     padding-left: 15px;
     padding-right: 15px;
     background-color: #c6c6c6;
@@ -159,13 +157,13 @@
     top: -3px;
     left: 0;
     border-top: 3px #555555 solid;
-    border-bottom:3px #555555 solid;
+    border-bottom:3px #000 solid;
  }
   .eightbit-btn:after {
     left: -3px;
     top: 0;
     border-left: 3px #555555 solid;
-    border-right: 3px #555555 solid;
+    border-right: 3px #000 solid;
  }
 
   .eightbit-btn:active {
@@ -188,4 +186,17 @@
       -2px -3px 0 0 #000,
       0 3px 0 0 #000,
       2px 3px 0 0 #000;
+}
+
+.input {
+  
+  border-right: 3px #555555 solid;
+  border-bottom: 3px #555555 solid;
+  box-shadow: inset 3px 3px 0px 0px #b5b4b5;
+}
+
+.input:focus {
+  border-right: 3px #333 solid;
+  border-bottom: 3px #333 solid;
+  box-shadow: inset 3px 3px 0px 1px #a1a1a1;
 }
