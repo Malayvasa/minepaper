@@ -9,7 +9,7 @@ export default function ItemPicker(props) {
   }
 
   return (
-    <div className="p-4 container w-full md:w-min flex flex-col min-h-[246px] max-h-min">
+    <div className="p-4 container w-full flex flex-col min-h-[246px] max-h-min">
       <div className="flex gap-8 pb-8 items-center justify-center">
         <div className="minecraft mb-2 h-max w-max">Inventory</div>
         <div className="search-container p-1 px-4 flex-grow w-1/2">
@@ -27,7 +27,7 @@ export default function ItemPicker(props) {
         </div>
       </div>
 
-      <div className="grid grid-cols-4 w-full md:w-min md:grid-cols-6 lg:grid-cols-9 gap-x-14 max-h-44 overflow-y-scroll">
+      <div className="grid grid-cols-4 w-full md:grid-cols-6 lg:grid-cols-9  max-h-44 overflow-y-scroll">
         {Data.map((item) => (
           <div
             key={item.id}

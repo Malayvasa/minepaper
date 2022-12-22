@@ -1,13 +1,20 @@
 import { useState } from 'react';
 import { ReactP5Wrapper } from 'react-p5-wrapper';
 import { SketchPicker } from 'react-color';
-import PaintBucket from './paintBucket';
+import PaintBucket from './PaintBucket.js';
+import useSound from 'use-sound';
+import LevelUp from '../sounds/levelup.mp3'; 
 
 export default function PatternPreview({sketch, ingredients, sketchName, backgroundColor, onColorSelect}) {
 
   const presetColors = ["#fbf8cc","#fde4cf","#ffcfd2","#f1c0e8","#cfbaf0","#a3c4f3","#90dbf4","#8eecf5","#98f5e1","#b9fbc0"];
 
   const [displayPicker, setDisplayPicker] = useState(false);
+
+  const [craft] = useSound(
+    LevelUp,
+    { volume: 0.75 }
+  );
 
   const handleClick = () => {
     let newState = !displayPicker;
@@ -45,11 +52,14 @@ export default function PatternPreview({sketch, ingredients, sketchName, backgro
         </div> : null }
 
         <div onClick={handleClick}>
-                <PaintBucket backgroundColor={backgroundColor} />
+                <PaintBucket className="minecraft" backgroundColor={backgroundColor} />
         </div>
 
               </div>
-              <button id='save' className="minecraft m-1 eightbit-btn p-2 flex justify-center items-center">Save Pattern</button>
+              <div id='save' onClick={()=>{console.log("sound"); craft();}}>
+              <button   className="minecraft m-1 eightbit-btn p-2 flex justify-center items-center">Save Pattern</button>
+              </div>
+              
             </div>
           </div>
     </div>

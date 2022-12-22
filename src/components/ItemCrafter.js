@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 export default function ItemCrafter({
   onChange,
   selectedIngredients,
@@ -28,7 +29,7 @@ export default function ItemCrafter({
             handleClear();
           }}
         >
-          <img className="w-8 h-8" src={require('../trash-bin.png')} />
+          <img alt='trash' className="w-8 h-8" src={require('../trash-bin.png')} />
         </button>
       </div>
 
