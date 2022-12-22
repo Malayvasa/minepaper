@@ -12,7 +12,7 @@ export default function PatternPreview({sketch, ingredients, sketchName, backgro
 
   const [craft] = useSound(
     LevelUp,
-    { volume: 0.75 }
+    { volume: 0.45 }
   );
 
   const handleClick = () => {

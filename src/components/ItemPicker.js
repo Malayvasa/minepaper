@@ -1,11 +1,19 @@
 import data from '../data.json';
 import { useState } from 'react';
+import useSound from 'use-sound';
+import Place from '../sounds/place.mp3'; 
 
 export default function ItemPicker(props) {
   const [Data, setData] = useState(data);
 
+  const [place] = useSound(
+    Place,
+    { volume: 0.075 }
+  );
+
   function handleClick(name) {
     props.onChange(name);
+    place();
   }
 
   return (

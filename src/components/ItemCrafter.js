@@ -1,5 +1,7 @@
 import React from 'react';
-
+import useSound from 'use-sound';
+import Break from '../sounds/break.mp3'; 
+import Empty from '../sounds/empty.mp3';
 
 export default function ItemCrafter({
   onChange,
@@ -7,13 +9,26 @@ export default function ItemCrafter({
   onClear,
   onColorClear,
 }) {
+
+  const [breakBlock] = useSound(
+    Break,
+    { volume: 0.075 }
+  );
+
+  const [empty] = useSound(
+    Empty,
+    { volume: 0.075 }
+  );
+
   const handleClick = (i) => {
     onChange(i);
+    breakBlock();
   };
 
   const handleClear = () => {
     onClear();
     onColorClear("#919191");
+    empty();
   };
 
   return (
