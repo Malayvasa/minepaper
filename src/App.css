@@ -130,6 +130,10 @@
     margin-top: 0;
   }
 
+  .mine {
+    font-family: 'MinecraftiaRegular';
+  }
+
   .eightbit-btn {
     background: #c6c6c6;
     display: inline-block;
@@ -171,6 +175,8 @@
  }
 
 .previewCanvas {
+  margin: 4px;
+  box-sizing: border-box;
   box-shadow: 
       4px -2px 0 0 #000,
       2px -4px 0 0 #000,
@@ -199,4 +205,12 @@
   border-right: 3px #333 solid;
   border-bottom: 3px #333 solid;
   box-shadow: inset 3px 3px 0px 1px #a1a1a1;
+}
+
+.preset {
+  background: #c6c6c6;
+  font-family: 'MinecraftiaRegular';
+  text-decoration: none;
+  padding: 8px;
+  box-shadow: 3px 3px 0px 1px #a1a1a1;
 }

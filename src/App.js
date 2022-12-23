@@ -14,7 +14,7 @@ function App() {
   const [selectedIngredients, setSelectedIngredients] = useState([]);
   const [sketchName, setSketchName] = useState(1);
   const [backgroundColor, setBackgroundColor] = useState('#919191');
-  const [iconSize, setIconSize] = useState(32);
+  const [iconSize, setIconSize] = useState(64);
   const [patternSize, setPatternSize] = useState({ width: 1920, height: 1080 });
 
   const handleItemSelect = (name) => {
@@ -57,6 +57,15 @@ function App() {
     setIconSize(size);
   };
 
+  const handlePresetSelect = (preset) => {
+    console.log('Preset Selected:', preset.name);
+    //set all icons in the selectedIngredients array to the preset icon array
+    setSelectedIngredients(preset.icons);
+    //set the background color to the preset background color
+    setBackgroundColor(preset.color);
+  };
+
+
   // handle pattern size to check if event name is width or height and set the state
   const handlePatternSize = (e) => {
     console.log('Pattern Size Changed:', e.target.name, e.target.value);
@@ -71,7 +80,7 @@ function App() {
     <div className="flex items-center p-8 h-screen w-screen back">
       <div className="w-full flex flex-col md:flex-row justify-center gap-8 m-auto">
         <div className="flex flex-col gap-y-8 items-center">
-          <ItemPicker onChange={handleItemSelect} />
+          <ItemPicker onChange={handleItemSelect} presetChange={handlePresetSelect}/>
           <div className="container w-full pt-2 pb-4 flex gap-x-8 items-start">
           <ItemCrafter
             onChange={handleItemDeselect}
