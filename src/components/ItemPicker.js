@@ -87,7 +87,7 @@ export default function ItemPicker(props) {
           </div>
           <div
             className={`mine mb-2 cursor-pointer h-max w-max ${
-              isPresetVisible ? 'text-black font-bold' : 'text-[#555]'
+              isPresetVisible ? 'text-black' : 'text-[#555]'
             }`}
             onClick={() => {
               setIsPresetVisible(true);
@@ -112,10 +112,10 @@ export default function ItemPicker(props) {
         </div>
       </div>
       {isPresetVisible ? (
-        <div className='flex flex-col gap-y-4 max-h-44 overflow-y-scroll'>
+        <div className='flex flex-col gap-y-0.5 box max-h-44 overflow-y-scroll'>
           {searchPreset.map((item) => (
             <div
-              className="preset box-border border-4 border-[#777] w-full minecraft"
+              className="preset cursor-pointer box-border border-4 border-[#777] w-full minecraft"
               onClick={() => {
                 handlePresetClick(item);
               }}
