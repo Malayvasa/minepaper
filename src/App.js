@@ -57,6 +57,15 @@ function App() {
     setIconSize(size);
   };
 
+  // handle pattern size to check if event name is width or height and set the state
+  const handlePatternSize = (e) => {
+    console.log('Pattern Size Changed:', e.target.name, e.target.value);
+    if (e.target.name === 'width') {
+      setPatternSize({ ...patternSize, width: e.target.value });
+    } else if (e.target.name === 'height') {
+      setPatternSize({ ...patternSize, height: e.target.value });
+    }
+  };
 
   return (
     <div className="flex items-center p-8 min-h-screen min-w-screen back">
@@ -77,34 +86,6 @@ function App() {
             )
           }
         </div>
-        
-        <div className='container py-4'>
-        <form className="flex flex-row justify-evenly gap-x-8 items-center">
-          <div>
-          <label className="minecraft">Width:</label>
-          <input
-            className="minecraft input pl-2 w-32 bg-transparent ml-2 outline-none py-4 h-8"
-            
-            value={patternSize.width}
-            onChange={(e) => {
-              setPatternSize({ ...patternSize, width: e.target.value });
-            }}
-          />
-          </div>
-          <div>
-          <label className="minecraft">Height :</label>
-          <input
-            className="minecraft input pl-2 w-32 bg-transparent ml-2 outline-none py-4 h-8"
-            
-            value={patternSize.height}
-            onChange={(e) => {
-              setPatternSize({ ...patternSize, height: e.target.value });
-            }}
-          />
-          </div>
-        </form>
-        </div>
-       
         </div>
 
         
@@ -118,6 +99,8 @@ function App() {
           backgroundColor={backgroundColor}
           onColorSelect={handleBackgroundColor}
           iconSize={iconSize}
+          onSizeChange={handlePatternSize}
+          patternSize={patternSize}
         />
 
         <div className=" hidden ">

@@ -177,6 +177,7 @@ export function sketch(p5) {
         p5.text(id, 10, 10, 32, 32);
       }
     }
+    p5.noLoop();
   };
 
   var el = document.getElementById('save');
