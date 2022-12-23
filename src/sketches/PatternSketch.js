@@ -97,12 +97,6 @@ export function sketch(p5) {
     }
   };
 
-  p5.keyPressed = () => {
-    if (p5.key === '1') {
-      id++;
-    }
-  };
-
   const drawGrid = (anim) => {
     p5.translate(xgap/2,ygap/2);
     for (let j = 0; j < row; j++) {
