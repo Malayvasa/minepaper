@@ -65,9 +65,16 @@ export default function PatternPreview({
 
   return (
     <div className="flex flex-col gap-y-8">
-      <div className="container w-max h-full flex flex-col ">
+      <div className="container w-full h-full flex flex-col ">
         <div className="minecraft mb-2">Pattern Preview</div>
-        <div className="previewCanvas">
+        {
+          ingredients.length === 0 && (
+              <div className='mine text-xs pb-4'>
+                Choose items from the Inventory to start crafting your pattern.
+                </div>
+            )
+          }
+        <div className="previewCanvas overflow-scroll w-[280px] h-[280px] md:w-[500px] md:h-[500px]">
           {sketch ? (
             <ReactP5Wrapper
               sketch={sketch}
@@ -83,7 +90,9 @@ export default function PatternPreview({
             <div className="w-64 h-64 minecraft">Loading Pattern</div>
           )}
         </div>
-        <div className="flex items-center w-full justify-between mt-4">
+        <div className="flex flex-col md:flex-row items-center w-full justify-between mt-4">
+
+          <div className='flex justify-between md:justify-evenly w-full md:w-max md:gap-x-8'>
           <div className="relative">
             {displayPicker ? (
               <div className=" absolute -top-[300px] z-20">
@@ -324,6 +333,7 @@ export default function PatternPreview({
               </div>
             </div>
           </div>
+
           <div className="pb-4">
             <form className="flex flex-col justify-left gap-x-8r">
               <div className="flex justify-between">
@@ -346,6 +356,10 @@ export default function PatternPreview({
               </div>
             </form>
           </div>
+          </div>
+          
+
+          
 
               <div className='flex flex-col items-center'>
               <div
@@ -356,7 +370,7 @@ export default function PatternPreview({
               craft();
             }}
           >
-            <button className="minecraft m-1 eightbit-btn p-2 flex justify-center items-center">
+            <button className="mb-4 md:mb-0 minecraft m-1 eightbit-btn p-2 flex justify-center items-center">
               Save Pattern
             </button>
           </div>
@@ -366,7 +380,7 @@ export default function PatternPreview({
               craft();
             }}
           >
-            <button className="mine text-xs underline text-[#c6c6c6] m-1 p-2 flex justify-center items-center">
+            <button className="hidden md:block mine text-xs underline text-[#c6c6c6] m-1 p-2 flex justify-center items-center">
               Log Preset
             </button>
           </div>

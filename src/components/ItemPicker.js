@@ -82,7 +82,7 @@ export default function ItemPicker(props) {
   return (
     <div className="p-4 container w-full flex flex-col min-h-[246px] max-h-min">
       <div className="flex gap-8 pb-8 items-center justify-center">
-        <div className="flex gap-4">
+        <div className="flex flex-col md:flex-row gap-x-4">
           <div
             className={`mine mb-2 cursor-pointer h-max w-max ${
               isPresetVisible ? 'text-[#555]' : 'text-black'
@@ -151,7 +151,7 @@ export default function ItemPicker(props) {
           ))}
         </div>
       ) : (
-        <div className="grid grid-cols-4 w-full md:grid-cols-6 lg:grid-cols-9  max-h-44 overflow-y-scroll">
+        <div className="grid grid-cols-5 w-full md:grid-cols-6 lg:grid-cols-9  max-h-44 overflow-y-scroll">
           {Data.map((item) => (
             <div
               key={item.id}

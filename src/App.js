@@ -86,31 +86,14 @@ function App() {
   };
 
   return (
-    <div className="flex items-center p-8 h-screen w-screen back">
+    <div className="flex items-center p-8 h-auto md:h-screen w-screen back overflow-hidden">
       <div className="w-full flex flex-col md:flex-row justify-center gap-8 m-auto">
+
+
         <div className="flex flex-col gap-y-8 items-center">
-          <ItemPicker onChange={handleItemSelect} presetChange={handlePresetSelect}/>
-          <div className="container w-full pt-2 pb-4 flex gap-x-8 items-start">
-          <ItemCrafter
-            onChange={handleItemDeselect}
-            selectedIngredients={selectedIngredients}
-            onClear={handleClear}
-            onColorClear={handleBackgroundColor}
-          />
-          <SketchSelector onChange={handleSketchSelect} />
-          {
-            sketchName !== 3 && (
-              <IconSizeSelector onChange={handleIconSize} />
-            )
-          }
-        </div>
-        </div>
-
-        
-
-        {/* <button onClick={onChangeSketch}>Change Sketch</button> */}
-
+        <div className='block md:hidden'>
         <PatternPreview
+          className="hidden"
           ingredients={selectedIngredients}
           sketch={Pattern.sketch}
           sketchName={sketchName}
@@ -121,6 +104,46 @@ function App() {
           patternSize={patternSize}
           onExport={exportPreset}
         />
+        </div>
+          <ItemPicker onChange={handleItemSelect} presetChange={handlePresetSelect}/>
+          <div className="container w-full pt-2 pb-4 flex flex-col gap-y-4 md:gap-y-0 md:flex-row gap-x-8 items-center md:items-start">
+          <ItemCrafter
+            onChange={handleItemDeselect}
+            selectedIngredients={selectedIngredients}
+            onClear={handleClear}
+            onColorClear={handleBackgroundColor}
+          />
+          <div className='flex gap-x-4 md:gap-x-8'>
+          <SketchSelector onChange={handleSketchSelect} />
+          {
+            sketchName !== 3 && (
+              <IconSizeSelector onChange={handleIconSize} />
+            )
+          }
+          </div>
+          
+        </div>
+        </div>
+
+        
+
+        {/* <button onClick={onChangeSketch}>Change Sketch</button> */}
+
+        <div className='hidden md:block'>
+        <PatternPreview
+          className="hidden"
+          ingredients={selectedIngredients}
+          sketch={Pattern.sketch}
+          sketchName={sketchName}
+          backgroundColor={backgroundColor}
+          onColorSelect={handleBackgroundColor}
+          iconSize={iconSize}
+          onSizeChange={handlePatternSize}
+          patternSize={patternSize}
+          onExport={exportPreset}
+        />
+        </div>
+        
 
         <div className=" hidden ">
           <ReactP5Wrapper
