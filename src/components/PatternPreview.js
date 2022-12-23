@@ -56,6 +56,9 @@ export default function PatternPreview({
     const preset = {
       icons: ingredients,
       color: backgroundColor,
+      sketchType : sketchName,
+      iconSize : iconSize,
+      patternSize : patternSize,
     };
     return preset;
   };
