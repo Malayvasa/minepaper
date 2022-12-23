@@ -366,7 +366,6 @@ export default function PatternPreview({
             id="save"
             onClick={() => {
               posthog.capture('Pattern Saved', postHogExport())
-              console.log('sound');
               craft();
             }}
           >

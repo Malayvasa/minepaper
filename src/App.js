@@ -91,20 +91,6 @@ function App() {
 
 
         <div className="flex flex-col gap-y-8 items-center">
-        <div className='block md:hidden'>
-        <PatternPreview
-          className="hidden"
-          ingredients={selectedIngredients}
-          sketch={Pattern.sketch}
-          sketchName={sketchName}
-          backgroundColor={backgroundColor}
-          onColorSelect={handleBackgroundColor}
-          iconSize={iconSize}
-          onSizeChange={handlePatternSize}
-          patternSize={patternSize}
-          onExport={exportPreset}
-        />
-        </div>
           <ItemPicker onChange={handleItemSelect} presetChange={handlePresetSelect}/>
           <div className="container w-full pt-2 pb-4 flex flex-col gap-y-4 md:gap-y-0 md:flex-row gap-x-8 items-center md:items-start">
           <ItemCrafter
@@ -129,7 +115,7 @@ function App() {
 
         {/* <button onClick={onChangeSketch}>Change Sketch</button> */}
 
-        <div className='hidden md:block'>
+        
         <PatternPreview
           className="hidden"
           ingredients={selectedIngredients}
@@ -142,7 +128,7 @@ function App() {
           patternSize={patternSize}
           onExport={exportPreset}
         />
-        </div>
+        
         
 
         <div className=" hidden ">
