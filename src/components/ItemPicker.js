@@ -43,6 +43,16 @@ export default function ItemPicker(props) {
       icons: ['stone_sword', 'stone_pickaxe', 'stone_axe', 'stone_shovel', 'stone_hoe'],
       color: '#8E8E8E',
     },
+    {
+      name: 'hoes',
+      icons: ['wooden_hoe','stone_hoe','iron_hoe','golden_hoe','diamond_hoe','netherite_hoe'],
+      color: '#000',
+    },
+    {
+      name: 'swords',
+      icons : ['wooden_sword','stone_sword','iron_sword','golden_sword','diamond_sword','netherite_sword'],
+      color: '#000',
+    }
   ];
 
   const [searchPreset, setSearchPreset] = useState(presets);
@@ -122,7 +132,7 @@ export default function ItemPicker(props) {
             >
               
               <div className="flex justify-between w-full">
-              <div className='flex-grow'>{item.name}</div>
+              <div className='flex-grow capitalize'>{item.name}</div>
               <div className='flex items-center'>
                 {item.icons.map((icon) => (
                   <div className="flex items-center w-4 h-4">

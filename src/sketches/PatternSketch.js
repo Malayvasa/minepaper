@@ -8,7 +8,9 @@ export function sketch(p5) {
   let defaultHeight = 500;
   let preview = false;
   let id = 1;
+  var a = 0;
   let backgroundColor = '#9191ff';
+  let animation = false;
 
   //Grid
   let row, col;
@@ -73,6 +75,7 @@ export function sketch(p5) {
     p5.createCanvas(defaultWidth, defaultHeight);
     p5.imageMode(p5.CENTER);
     p5.angleMode(p5.DEGREES);
+    p5.frameRate(10);
 
     row = p5.floor(p5.width / spacing);
     col = p5.floor(p5.height / spacing);
@@ -100,7 +103,7 @@ export function sketch(p5) {
     }
   };
 
-  const drawGrid = () => {
+  const drawGrid = (anim) => {
     p5.translate(xgap/2,ygap/2);
     for (let j = 0; j < row; j++) {
       for (let k = 0; k < col; k++) {
@@ -109,45 +112,45 @@ export function sketch(p5) {
         let i = pos % icons.length;
 
         //text(pos,j*32,k*32);
-        p5.image(icons[i], j * xgap, k * ygap, spacing / 2, spacing / 2);
+        p5.image(icons[(i + anim)%icons.length], j * xgap, k * ygap, spacing / 2, spacing / 2);
       }
     }
   };
 
-  const drawRing = () => {
+  const drawRing = (anim) => {
     let x = 1;
     p5.translate(p5.width / 2, p5.height / 2);
-    p5.image(icons[0], 0, 0, spacing / 2, spacing / 2);
+    p5.image(icons[(anim)%icons.length], 0, 0, spacing / 2, spacing / 2);
 
     for (let j = spacing; j < p5.width; j = j + spacing) {
       let q = p5.int(x % icons.length);
       for (let k = 0; k < x * 6; k++) {
         p5.rotate(360 / (x * 6));
-        p5.image(icons[q], 0, j, spacing / 2, spacing / 2);
+        p5.image(icons[(q + anim)%icons.length], 0, j, spacing / 2, spacing / 2);
       }
       x = x + 1;
     }
   };
 
-  const drawSpiral = () => {
+  const drawSpiral = (anim) => {
     p5.translate(p5.width / 2, p5.height / 2);
     p5.image(icons[0], 0, 0, 32, 32);
 
     for (let i = 0; i < 18; i++) {
       let pos = p5.int(i % icons.length);
-      drawSpiral((i * 360) / 18, pos);
+      drawSpiral((i * 360) / 18, pos, anim);
     }
 
-    function drawSpiral(r, pos) {
+    function drawSpiral(r, pos, anim) {
       p5.push();
       p5.rotate(r);
       p5.push();
       for (let i = 5; i < p5.width; i++) {
         p5.rotate(360 / 60);
         if(preview === true){
-        p5.image(icons[pos], 7.5 * i, 10 * i, 1.2 * i, 1.2 * i);}
+        p5.image(icons[(pos + anim)%icons.length], 7.5 * i, 10 * i, 1.2 * i, 1.2 * i);}
         else{
-          p5.image(icons[pos], 7.5 * i, 10 * i, 0.8 * i, 0.8 * i);
+          p5.image(icons[(pos + anim)%icons.length], 7.5 * i, 10 * i, 0.8 * i, 0.8 * i);
         }
       }
       p5.pop();
@@ -161,23 +164,24 @@ export function sketch(p5) {
     if (icons.length === 0 && preview === true) {
       p5.background(backgroundColor);
     } else if (icons.length > 0) {
-      if (preview === true) {
-        p5.background(backgroundColor);
-      } else {
-        p5.background(backgroundColor);
-      }
+      p5.background(backgroundColor);
       if (id === 1) {
-        drawRing();
+        drawRing(a);
       } else if (id === 2) {
-        drawGrid();
+        drawGrid(a);
       } else if (id === 3) {
-        drawSpiral();
+        drawSpiral(a);
       }
        else {
         p5.text(id, 10, 10, 32, 32);
       }
     }
-    p5.noLoop();
+    if(animation === false){
+      p5.noLoop();
+    }else{
+      a++;
+    }
+   
   };
 
   var el = document.getElementById('save');

@@ -14,8 +14,8 @@ function App() {
   const [selectedIngredients, setSelectedIngredients] = useState([]);
   const [sketchName, setSketchName] = useState(1);
   const [backgroundColor, setBackgroundColor] = useState('#919191');
-  const [iconSize, setIconSize] = useState(64);
-  const [patternSize, setPatternSize] = useState({ width: 1920, height: 1080 });
+  const [iconSize, setIconSize] = useState(32);
+  const [patternSize, setPatternSize] = useState({ width: 1080, height:1080 });
 
   const handleItemSelect = (name) => {
     if (selectedIngredients.length >= 9) {
@@ -76,6 +76,15 @@ function App() {
     }
   };
 
+  const exportPreset = () => {
+    const preset = {
+      name: 'New Preset',
+      icons: selectedIngredients,
+      color: backgroundColor,
+    };
+    console.log('Preset Exported:', preset);
+  };
+
   return (
     <div className="flex items-center p-8 h-screen w-screen back">
       <div className="w-full flex flex-col md:flex-row justify-center gap-8 m-auto">
@@ -110,6 +119,7 @@ function App() {
           iconSize={iconSize}
           onSizeChange={handlePatternSize}
           patternSize={patternSize}
+          onExport={exportPreset}
         />
 
         <div className=" hidden ">

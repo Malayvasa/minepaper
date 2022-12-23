@@ -13,6 +13,7 @@ export default function PatternPreview({
   iconSize,
   patternSize,
   onSizeChange,
+  onExport,
 }) {
   const presetColors = [
     '#fbf8cc',
@@ -331,7 +332,9 @@ export default function PatternPreview({
               </div>
             </form>
           </div>
-          <div
+
+              <div className='flex flex-col items-center'>
+              <div
             id="save"
             onClick={() => {
               console.log('sound');
@@ -342,6 +345,18 @@ export default function PatternPreview({
               Save Pattern
             </button>
           </div>
+          <div
+            onClick={() => {
+              onExport();
+              craft();
+            }}
+          >
+            <button className="mine text-xs underline text-[#c6c6c6] m-1 p-2 flex justify-center items-center">
+              Log Preset
+            </button>
+          </div>
+              </div>
+
         </div>
       </div>
     </div>
