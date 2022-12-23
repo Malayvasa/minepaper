@@ -348,6 +348,7 @@ export default function PatternPreview({
               <div
             id="save"
             onClick={() => {
+              posthog.capture('Pattern Saved', postHogExport())
               console.log('sound');
               craft();
             }}
@@ -358,7 +359,6 @@ export default function PatternPreview({
           </div>
           <div
             onClick={() => {
-              posthog.capture('Pattern Saved', postHogExport())
               onExport();
               craft();
             }}
