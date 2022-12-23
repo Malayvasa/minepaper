@@ -3,6 +3,9 @@ import { ReactP5Wrapper } from 'react-p5-wrapper';
 import { SketchPicker } from 'react-color';
 import useSound from 'use-sound';
 import LevelUp from '../sounds/levelup.mp3';
+import posthog from 'posthog-js'
+posthog.init('phc_AStYWHVnAjzLaae0uLb4FAmGXr5fTc89iZHl0WmiNyF', {api_host:'https://app.posthog.com'})
+
 
 export default function PatternPreview({
   sketch,
@@ -47,6 +50,14 @@ export default function PatternPreview({
 
   const handleSize = (e) => {
     onSizeChange(e);
+  };
+
+  const postHogExport = () => {
+    const preset = {
+      icons: ingredients,
+      color: backgroundColor,
+    };
+    return preset;
   };
 
   return (
@@ -347,6 +358,7 @@ export default function PatternPreview({
           </div>
           <div
             onClick={() => {
+              posthog.capture('Pattern Saved', postHogExport())
               onExport();
               craft();
             }}
