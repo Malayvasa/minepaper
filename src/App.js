@@ -15,7 +15,7 @@ function App() {
   const [selectedIngredients, setSelectedIngredients] = useState([]);
   const [sketchName, setSketchName] = useState(1);
   const [backgroundColor, setBackgroundColor] = useState('#919191');
-  const [iconSize, setIconSize] = useState(32);
+  const [iconSize, setIconSize] = useState(64);
   const [patternSize, setPatternSize] = useState({ width: 1080, height:1080 });
 
   const handleItemSelect = (name) => {
@@ -92,8 +92,11 @@ function App() {
 
   return (
     <div className="flex flex-col items-center justify-evenly p-8 h-auto md:min-h-screen w-screen back overflow-hidden">
-       <div className='w-[300px] md:w-[500px] pt-10 md:pt-0 pb-8'>
+       <div className='relative w-[300px] md:w-[500px] pt-10 md:pt-0 pb-8'>
           <img src={Title} alt="logo"/>
+          <div className='mine top-3/4 -mt-8 -mr-8 -rotate-12 right-0 absolute title text-xl text-[#F4F739]'>
+            Merry Christmas!
+          </div>
         </div>
       <div className=" w-full flex flex-col md:flex-row justify-center gap-8 ">
         <div className=' text-sm p-2 px-8 absolute left-0 top-0 w-screen mine text-center text-white block bg-blue-300 md:hidden'>

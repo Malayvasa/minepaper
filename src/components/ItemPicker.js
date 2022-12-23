@@ -52,6 +52,11 @@ export default function ItemPicker(props) {
       name: 'swords',
       icons : ['wooden_sword','stone_sword','iron_sword','golden_sword','diamond_sword','netherite_sword'],
       color: '#000',
+    },
+    {
+      name: 'amethyst',
+      icons : ['small_amethyst_bud', 'medium_amethyst_bud', 'large_amethyst_bud', 'amethyst_cluster', 'amethyst_shard'],
+      color : '#cfbaf0',
     }
   ];
 

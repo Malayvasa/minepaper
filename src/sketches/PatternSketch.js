@@ -11,6 +11,7 @@ export function sketch(p5) {
   var a = 0;
   let backgroundColor = '#9191ff';
   let animation = false;
+  let title = '';
 
   //Grid
   let row, col;
@@ -26,6 +27,8 @@ export function sketch(p5) {
   p5.updateWithProps = (props) => {
     if (props.icons && props.icons.length > 0) {
       //make an array iconids of ids from data that match the names in the props do not remove duplicates
+      title = props.icons[0];
+
       let iconids = [];
       props.icons.forEach((name) => {
         let id = data.findIndex((item) => item.name === name);
@@ -67,7 +70,27 @@ export function sketch(p5) {
 
   const savePNG = () => {
     if (preview === false) {
-      p5.saveCanvas('myCanvas', 'png');
+      let type = 'pattern';
+      let size = 'unknown';
+      
+      if(id == 1){
+        type = 'ring';
+      }else if(id ==2){
+        type = 'grid';
+      }else if(id ==3){
+        type = 'spiral';
+      }
+
+      if(spacing == 32){
+        size = 'small';
+      }else if(spacing == 64){
+        size = 'medium';
+      }else if(spacing == 96){
+        size = 'large';
+      }
+
+      title = "minepaper" + "_" + spacing + "_" + type;
+      p5.saveCanvas(title, 'png');
     }
   };
 
@@ -113,10 +136,18 @@ export function sketch(p5) {
 
   const drawRing = (anim) => {
     let x = 1;
+    let max;
     p5.translate(p5.width / 2, p5.height / 2);
     p5.image(icons[(anim)%icons.length], 0, 0, spacing / 2, spacing / 2);
 
-    for (let j = spacing; j < p5.width; j = j + spacing) {
+    if(p5.width > p5.height){
+      max = p5.width;
+    }
+    else{
+      max = p5.height;
+    }
+
+    for (let j = spacing; j < max; j = j + spacing) {
       let q = p5.int(x % icons.length);
       for (let k = 0; k < x * 6; k++) {
         p5.rotate(360 / (x * 6));
