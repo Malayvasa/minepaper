@@ -7,6 +7,7 @@ import ItemCrafter from './components/ItemCrafter';
 import SketchSelector from './components/SketchSelector';
 import PatternPreview from './components/PatternPreview';
 import IconSizeSelector from './components/IconSizeSelector';
+import Title from './Title.png';
 
 //formula of index position of element i in a 2d array
 
@@ -90,10 +91,16 @@ function App() {
   };
 
   return (
-    <div className="flex items-center p-8 h-auto md:h-screen w-screen back overflow-hidden">
-      <div className="w-full flex flex-col md:flex-row justify-center gap-8 m-auto">
+    <div className="flex flex-col items-center justify-evenly p-8 h-auto md:min-h-screen w-screen back overflow-hidden">
+       <div className='w-[300px] md:w-[500px] pt-10 md:pt-0 pb-8'>
+          <img src={Title} alt="logo"/>
+        </div>
+      <div className=" w-full flex flex-col md:flex-row justify-center gap-8 ">
+        <div className=' text-sm p-2 px-8 absolute left-0 top-0 w-screen mine text-center text-white block bg-blue-300 md:hidden'>
+          For the best experience<br/> use desktop or tablet
+        </div>
 
-
+       
         <div className="flex flex-col gap-y-8 items-center">
           <ItemPicker onChange={handleItemSelect} presetChange={handlePresetSelect}/>
           <div className="container w-full pt-2 pb-4 flex flex-col gap-y-4 md:gap-y-0 md:flex-row gap-x-8 items-center md:items-start">
