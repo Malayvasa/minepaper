@@ -70,9 +70,13 @@ function App() {
   const handlePatternSize = (e) => {
     console.log('Pattern Size Changed:', e.target.name, e.target.value);
     if (e.target.name === 'width') {
-      setPatternSize({ ...patternSize, width: e.target.value });
+      const currentHeight = patternSize.height;
+      console.log('currentHeight', currentHeight);
+      setPatternSize({width: parseInt(e.target.value), height: currentHeight });
     } else if (e.target.name === 'height') {
-      setPatternSize({ ...patternSize, height: e.target.value });
+      const currentWidth = patternSize.width;
+      console.log('currentWidth', currentWidth);
+      setPatternSize({width: currentWidth, height: parseInt(e.target.value) });
     }
   };
 
