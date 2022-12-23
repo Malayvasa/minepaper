@@ -68,7 +68,7 @@ function App() {
   };
 
   return (
-    <div className="flex items-center p-8 min-h-screen min-w-screen back">
+    <div className="flex items-center p-8 h-screen w-screen back">
       <div className="w-full flex flex-col md:flex-row justify-center gap-8 m-auto">
         <div className="flex flex-col gap-y-8 items-center">
           <ItemPicker onChange={handleItemSelect} />
