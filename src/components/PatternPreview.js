@@ -341,6 +341,7 @@ export default function PatternPreview({
                 <input
                   className="minecraft input pl-2 w-32 bg-transparent ml-2 outline-none py-4 h-8"
                   name='width'
+                  type={'number'}
                   value={patternSize.width}
                   onChange={(e) => {handleSize(e)}}
                 />
@@ -350,6 +351,7 @@ export default function PatternPreview({
                 <input
                   className="minecraft input pl-2 w-32 bg-transparent ml-2 outline-none py-4 h-8"
                   name='height'
+                  type={'number'}
                   value={patternSize.height}
                   onChange={(e) => {handleSize(e)}}
                 />
