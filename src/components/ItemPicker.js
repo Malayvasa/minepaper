@@ -2,6 +2,8 @@ import data from '../data.json';
 import { useState } from 'react';
 import useSound from 'use-sound';
 import Place from '../sounds/place.mp3';
+import ChestOpen from '../sounds/chest-open.mp3';
+import ChestClose from '../sounds/chest-close.mp3';
 
 export default function ItemPicker(props) {
   const [Data, setData] = useState(data);
@@ -57,11 +59,13 @@ export default function ItemPicker(props) {
       name: 'amethyst',
       icons : ['small_amethyst_bud', 'medium_amethyst_bud', 'large_amethyst_bud', 'amethyst_cluster', 'amethyst_shard'],
       color : '#cfbaf0',
-    }
+    },
   ];
 
   const [searchPreset, setSearchPreset] = useState(presets);
   const [place] = useSound(Place, { volume: 0.075 });
+  const [preset] = useSound(ChestOpen, { volume: 0.045 });
+  const [inventory] = useSound(ChestClose, { volume: 0.045 });
 
   function handleClick(name) {
     props.onChange(name);
@@ -85,7 +89,7 @@ export default function ItemPicker(props) {
   }
 
   return (
-    <div className="p-4 container w-full flex flex-col min-h-[246px] max-h-min">
+    <div className="p-4 container w-full flex flex-col max-h-[354px] h-full">
       <div className="flex gap-8 pb-8 items-center justify-center">
         <div className="flex flex-col md:flex-row gap-x-4">
           <div
@@ -93,6 +97,7 @@ export default function ItemPicker(props) {
               isPresetVisible ? 'text-[#555]' : 'text-black'
             }`}
             onClick={() => {
+              inventory();
               setIsPresetVisible(false);
               handleSearch('');
               document.getElementById('search').value = '';
@@ -105,6 +110,7 @@ export default function ItemPicker(props) {
               isPresetVisible ? 'text-black' : 'text-[#555]'
             }`}
             onClick={() => {
+              preset();
               setIsPresetVisible(true);
               handleSearch('');
               document.getElementById('search').value = '';
@@ -127,7 +133,7 @@ export default function ItemPicker(props) {
         </div>
       </div>
       {isPresetVisible ? (
-        <div className='flex flex-col gap-y-0.5 box max-h-44 overflow-y-scroll'>
+        <div className='flex flex-col gap-y-0.5 box h-full overflow-y-scroll'>
           {searchPreset.map((item) => (
             <div
               className="preset cursor-pointer box-border border-4 border-[#777] w-full minecraft"
@@ -156,7 +162,7 @@ export default function ItemPicker(props) {
           ))}
         </div>
       ) : (
-        <div className="grid grid-cols-5 w-full md:grid-cols-6 lg:grid-cols-9  max-h-44 overflow-y-scroll">
+        <div className="grid grid-cols-5 w-full md:grid-cols-6 lg:grid-cols-9  h-full overflow-y-scroll">
           {Data.map((item) => (
             <div
               key={item.id}

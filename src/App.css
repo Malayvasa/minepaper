@@ -13,6 +13,7 @@
 
   .back {
     background-image: url("./bg-2.jpeg");
+    background-color: #323101;
     background-size: cover;
   }
  .resizer {
@@ -133,8 +134,8 @@
 
   .eightbit-btn {
     background: #c6c6c6;
-    display: inline-block;
     position: relative;
+    cursor: pointer;
     text-align: center;
     font-family: 'MinecraftiaRegular';
     text-decoration: none;

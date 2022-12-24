@@ -44,7 +44,7 @@ export default function ItemCrafter({
             handleClear();
           }}
         >
-          <img alt='trash' className="w-8 h-8" src={require('../trash-bin.png')} />
+          <img alt='trash' className="w-8 h-8" src={require('../symbols/trash-bin.png')} />
         </button>
       </div>
 
