@@ -11,9 +11,64 @@ export default function ItemPicker(props) {
 
   const presets = [
     {
-      name: 'flowers',
+      name: 'rich flex',
+      icons: ["diamond", "golden_carrot", "diamond_pickaxe", "emerald", "amethyst_shard"],
+      color: '#54D6AC',
+    },
+    {
+      name: 'sky is the limit',
+      icons: ['elytra', 'firework_rocket', 'nether_star', 'tipped_arrow'],
+      color: '#bfeaf5',
+    },
+    {
+      name: 'aqua blue',
+      icons: ["fishing_rod", "tropical_fish", "tropical_fish_bucket", "kelp"],
+      color: '#82aae3',
+    },
+    {
+      name: "0s and 1s",
+      icons: ["barrier", "blaze_rod"], 
+      color: '#000000',
+    },
+    {
+      name: 'ender danger',
+      icons: ["ender_pearl", "blaze_powder", "ender_eye", "blaze_rod"],
+      color: '#000000',
+    },
+    {
+      name: 'happy birthday to me',
+      icons: ["cake", "light", "red_candle", "light", "blue_candle"],
+      color: '#DC3535',
+    },
+    {
+      name: 'mcCraft supreme',
+      icons:['cooked_chicken', 'cooked_cod', 'mutton', 'cooked_porkchop', 'cooked_rabbit'],
+      color:'#DC3535',
+    },
+    {
+      name: 'flower power',
       icons: ['dandelion', 'poppy', 'blue_orchid', 'allium', 'red_tulip', 'oxeye_daisy', 'cornflower', 'lily_of_the_valley', 'lilac'],
       color: '#DFFFE4',
+    },
+    {
+      name: 'redstone',
+      icons: ["redstone", "redstone_wall_torch", "repeater", "piston", "redstone_block", "redstone_wire"],
+      color: '#650000',
+    },
+    {
+      name: 'queer pride',
+      icons: ["red_dye", "orange_dye", "yellow_dye", "green_dye", "blue_dye", "purple_dye"],
+      color: '#FFFFFF',
+    },
+    {
+      name: 'spruce banner',
+      icons: ["spruce_sapling", "spruce_planks", "green_banner"],
+      color: '#9bc063',
+    },  
+    {
+      name: 'ingot pot',
+      icons: ["gold_ingot", "iron_ingot", "copper_ingot", "brick", "netherite_ingot", "nether_brick"],
+      color: '#BBBBBB',
     },
     {
       name: 'diamond tools',
@@ -52,7 +107,7 @@ export default function ItemPicker(props) {
     },
     {
       name: 'swords',
-      icons : ['wooden_sword','stone_sword','iron_sword','golden_sword','diamond_sword','netherite_sword'],
+      icons : ['diamond_sword', 'wooden_sword', 'stone_sword', 'golden_sword', 'iron_sword', 'netherite_sword'],
       color: '#000',
     },
     {
@@ -89,7 +144,7 @@ export default function ItemPicker(props) {
   }
 
   return (
-    <div className="p-4 container w-full flex flex-col max-h-[354px] h-full">
+    <div className="p-4 container w-full flex flex-col h-[354px]">
       <div className="flex gap-8 pb-8 items-center justify-center">
         <div className="flex flex-col md:flex-row gap-x-4">
           <div
