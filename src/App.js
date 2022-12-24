@@ -17,7 +17,7 @@ function App() {
   const [backgroundColor, setBackgroundColor] = useState('#919191');
   const [iconSize, setIconSize] = useState(64);
   const [patternSize, setPatternSize] = useState({ width: 1080, height: 1080 });
-  const [downloadCount, setDownloadCount] = useState(0);
+  const [downloadCount, setDownloadCount] = useState('xxx');
 
   useEffect(() => {
     const countEl = document.getElementById('count');
