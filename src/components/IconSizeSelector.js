@@ -34,6 +34,7 @@ export default function IconSizeSelector({ onChange }) {
           <div className="minecraft">Large</div>
         </div>
       </div>
+      
     </div>
   );
 }

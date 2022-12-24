@@ -21,6 +21,7 @@ export default function PatternPreview({
   onCustomSizeChange,
   onPresetSizeChange,
   onExport,
+  onDownload,
 }) {
   const [craft] = useSound(LevelUp, { volume: 0.45 });
 
@@ -39,6 +40,10 @@ export default function PatternPreview({
     posthog.capture('Pattern Saved', postHogExport());
     onExport();
     craft();
+  };
+
+  const handleDownload = () => {
+    onDownload();
   };
 
   return (
@@ -69,9 +74,10 @@ export default function PatternPreview({
                 id="save"
                 onClick={() => {
                   handleSave();
+                  handleDownload();
                 }}
               >
-                <button className="mb-4 bg-white md:mb-0 minecraft m-1 eightbit-btn p-2 flex justify-center items-center">
+                <button className=" bg-white minecraft m-1 eightbit-btn p-2 flex justify-center items-center">
                   Save Pattern
                 </button>
               </div>
@@ -86,9 +92,9 @@ export default function PatternPreview({
         </div>
 
         
-        <div className="flex mb-4 flex-col w-full">
+        <div className="flex mb-4 flex-col w-full text-center md:text-left">
         <div className="minecraft">Export Preferences</div>
-        <div className='flex w-full items-center justify-between'>
+        <div className='flex flex-col gap-y-4 md:flex-row w-full items-center justify-between'>
         <ExportSizeSelector
             patternSize={patternSize}
             onCustomSizeChange={onCustomSizeChange}
