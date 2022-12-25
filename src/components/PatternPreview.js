@@ -91,7 +91,7 @@ export default function PatternPreview({
               </div>
             </div>
             <div className='md:hidden w-full text-center mine text-[#555] text-xs mt-6'>
-              Mobile Exports Limited to 1080px * 1080px <br/>
+              Mobile Exports Limited to 1080px * 1080px,
               Use Desktop/Tablet for Larger Exports
             </div>
           </div>
