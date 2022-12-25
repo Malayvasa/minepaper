@@ -187,7 +187,7 @@ export function sketch(p5) {
 
   p5.draw = () => {
     if (icons.length === 0 && preview === true) {
-      p5.background(backgroundColor);
+      p5.background(backgroundColor);      
     } else if (icons.length > 0) {
       p5.background(backgroundColor);
       if (id === 1) {

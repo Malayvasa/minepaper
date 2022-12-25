@@ -16,6 +16,11 @@
     background-color: #323101;
     background-size: cover;
   }
+
+  .about {
+    background-image: url("./book.png");
+    background-size: cover;
+  }
  .resizer {
     max-height: 500px;
     max-width: 500px;

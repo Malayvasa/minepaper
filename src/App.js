@@ -8,6 +8,7 @@ import SketchSelector from './components/SketchSelector';
 import PatternPreview from './components/PatternPreview';
 import IconSizeSelector from './components/IconSizeSelector';
 import Title from './Title.png';
+import AboutSection from './components/AboutSection';
 
 //formula of index position of element i in a 2d array
 
@@ -18,26 +19,27 @@ function App() {
   const [iconSize, setIconSize] = useState(64);
   const [patternSize, setPatternSize] = useState({ width: 1080, height: 1080 });
   const [downloadCount, setDownloadCount] = useState('xxx');
+  const [aboutVisible, setAboutVisible] = useState(false);
 
   useEffect(() => {
     const countEl = document.getElementById('count');
     fetch('https://api.countapi.xyz/get/wallcraft/download')
-    .then(res => res.json())
-    .then(res => {
-      countEl.innerHTML = res.value;
-      setDownloadCount(res.value);
-    })
+      .then((res) => res.json())
+      .then((res) => {
+        countEl.innerHTML = res.value;
+        setDownloadCount(res.value);
+      });
   }, []);
 
   const handleDownload = () => {
     fetch('https://api.countapi.xyz/update/wallcraft/download/?amount=1')
-    .then(res => res.json())
-    .then(res => {
-      const countEl = document.getElementById('count');
-      countEl.innerHTML = res.value;
-      setDownloadCount(res.value);
-    })
-  }
+      .then((res) => res.json())
+      .then((res) => {
+        const countEl = document.getElementById('count');
+        countEl.innerHTML = res.value;
+        setDownloadCount(res.value);
+      });
+  };
 
   const handleItemSelect = (name) => {
     if (selectedIngredients.length >= 9) {
@@ -120,15 +122,17 @@ function App() {
 
   return (
     <div className="flex flex-col items-center justify-evenly p-8 h-auto md:min-h-screen w-screen back overflow-hidden">
+
+{aboutVisible && (
+        
+          <AboutSection setAboutVisible={setAboutVisible} />
+      )}
+
       <div className="relative w-[300px] md:w-[500px] pt-10 md:pt-0 pb-8">
         <img src={Title} alt="logo" />
-        <div className="mine flex gap-x-2 top-3/4 -mt-8 -mr-8 -rotate-12 right-0 absolute title text-md md:text-xl text-[#F4F739]">
-         <div id='count'>
-            {downloadCount}
-          </div> 
-          <div>
-            Downloads!
-          </div>
+        <div className="mine flex gap-x-2 top-3/4 -mt-6 -mr-8 -rotate-12 right-0 absolute title text-md md:text-xl text-[#F4F739]">
+          <div id="count">{downloadCount}</div>
+          <div>Downloads!</div>
         </div>
       </div>
 
@@ -136,6 +140,7 @@ function App() {
         For the best experience
         <br /> use desktop or tablet
       </div>
+
 
       <div className=" w-full flex flex-col h-full md:flex-row justify-center gap-8 ">
         <div className="flex flex-col gap-y-8 items-center">
@@ -176,7 +181,13 @@ function App() {
         />
       </div>
 
-      <div className="md:fixed md:top-0 md:right-0 m-4 text-center">
+      <div
+        onClick={() => {
+          const newState = !aboutVisible;
+          setAboutVisible(newState);
+        }}
+        className="md:fixed md:top-0 z-50 md:right-0 m-4 text-center"
+      >
         <div className="eightbit-btn p-2 text-xs text-[#555]">
           About WallCraft
         </div>

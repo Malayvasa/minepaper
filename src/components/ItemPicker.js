@@ -11,6 +11,11 @@ export default function ItemPicker(props) {
 
   const presets = [
     {
+      name: 'merry craftmas',
+      icons: ["spruce_sapling", "snowball", "snow"],
+      color: '#850000',
+    },
+    {
       name: 'rich flex',
       icons: ["diamond", "golden_carrot", "diamond_pickaxe", "emerald", "amethyst_shard"],
       color: '#54D6AC',
