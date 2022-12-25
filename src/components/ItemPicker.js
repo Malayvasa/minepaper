@@ -150,11 +150,11 @@ export default function ItemPicker(props) {
 
   return (
     <div className="p-4 container w-full flex flex-col h-[354px]">
-      <div className="flex gap-8 pb-8 items-center justify-center">
-        <div className="flex mr-4 flex-col md:flex-row gap-x-4">
+      <div className="flex flex-col w-full md:flex-row gap-4 md:gap-8 pb-8 md:items-center md:justify-center">
+        <div className="flex mr-4 gap-x-4">
           <div
-            className={`mine mb-2 p-1 w-18 cursor-pointer h-max ${
-              isPresetVisible ? 'text-[#555]' : 'input pl-2'
+            className={`mine mb-2 p-1 pl-2 w-18 cursor-pointer h-max ${
+              isPresetVisible ? 'text-[#555]' : 'input'
             }`}
             onClick={() => {
               inventory();
@@ -166,8 +166,8 @@ export default function ItemPicker(props) {
             Inventory
           </div>
           <div
-            className={`mine mb-2 p-1 w-18 cursor-pointer h-max ${
-              isPresetVisible ? 'input pl-2' : 'text-[#555]'
+            className={`mine mb-2 p-1 pl-2 w-[95px] cursor-pointer h-max ${
+              isPresetVisible ? 'input' : 'text-[#555]'
             }`}
             onClick={() => {
               preset();
@@ -180,7 +180,7 @@ export default function ItemPicker(props) {
           </div>
         </div>
 
-        <div className="search-container p-1 px-4 flex-grow w-1/2">
+        <div className="search-container p-1 px-4 flex-grow md:w-1/2">
           <input
             className="minecraft placeholder-[#555] w-full outline-none bg-transparent"
             type="text"
