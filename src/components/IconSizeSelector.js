@@ -10,7 +10,7 @@ export default function IconSizeSelector({ onChange }) {
       <div className="minecraft mb-2">Icon Size</div>
       <div className="flex flex-col flex-wrap gap-y-4 overflow-y-scroll">
         <div
-          className="m-1 w-32 eightbit-btn p-2 flex justify-center items-center"
+          className="m-1 w-32 eightbit-btn py-[9px] p-2 flex justify-center items-center"
           onClick={() => {
             handleSizeSelect(64);
           }}
@@ -18,7 +18,7 @@ export default function IconSizeSelector({ onChange }) {
           <div className="minecraft">Small</div>
         </div>
         <div
-          className=" m-1 w-32 eightbit-btn p-2 flex justify-center items-center"
+          className=" m-1 w-32 eightbit-btn py-[9px] p-2 flex justify-center items-center"
           onClick={() => {
             handleSizeSelect(96);
           }}
@@ -26,7 +26,7 @@ export default function IconSizeSelector({ onChange }) {
           <div className="minecraft">Medium</div>
         </div>
         <div
-          className=" m-1 w-32 eightbit-btn  p-2 flex justify-center items-center"
+          className=" m-1 w-32 eightbit-btn py-[9px]  p-2 flex justify-center items-center"
           onClick={() => {
             handleSizeSelect(128);
           }}
