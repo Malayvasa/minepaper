@@ -16,7 +16,7 @@ function App() {
   const [selectedIngredients, setSelectedIngredients] = useState([]);
   const [sketchName, setSketchName] = useState(1);
   const [backgroundColor, setBackgroundColor] = useState('#919191');
-  const [iconSize, setIconSize] = useState(64);
+  const [iconSize, setIconSize] = useState('medium');
   const [patternSize, setPatternSize] = useState({ width: 1080, height: 1080 });
   const [downloadCount, setDownloadCount] = useState('xxx');
   const [aboutVisible, setAboutVisible] = useState(false);
@@ -128,17 +128,12 @@ function App() {
           <AboutSection setAboutVisible={setAboutVisible} />
       )}
 
-      <div className="relative w-[300px] md:w-[500px] pt-10 md:pt-0 pb-8">
+      <div className="relative w-[300px] md:w-[500px] mb-4 md:mb-0 pb-8">
         <img src={Title} alt="logo" />
         <div className="mine flex gap-x-2 top-3/4 -mt-6 -mr-8 -rotate-12 right-0 absolute title text-md md:text-xl text-[#F4F739]">
           <div id="count">{downloadCount}</div>
           <div>Downloads!</div>
         </div>
-      </div>
-
-      <div className="fixed text-sm p-2 px-8 z-50 left-0 top-0 w-screen mine text-center text-white block bg-blue-300 md:hidden">
-        For the best experience
-        <br /> use desktop or tablet
       </div>
 
 
@@ -188,7 +183,7 @@ function App() {
         }}
         className="md:fixed md:top-0 z-50 md:right-0 m-4 text-center"
       >
-        <div className="eightbit-btn p-2 text-xs text-[#555]">
+        <div className="eightbit-btn mt-4 md:mt-0 p-2 text-xs text-[#555]">
           About WallCraft
         </div>
       </div>

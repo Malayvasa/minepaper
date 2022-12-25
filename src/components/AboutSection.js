@@ -4,7 +4,7 @@ export default function AboutSection({setAboutVisible}) {
   return (
       <div className="bg-black flex items-center justify-center bg-opacity-30 mine text-xl fixed top-0 left-0 z-40 w-screen h-screen">
 
-        <div className="about w-[500px] h-[620px] z-50 p-12">
+        <div className="about w-screen h-full max-w-[500px] max-h-[620px] z-50 p-12">
           <div className="relative flex flex-col w-full h-full items-center justify-evenly">
             <div
               onClick={() => {
@@ -77,7 +77,7 @@ export default function AboutSection({setAboutVisible}) {
               
               <div className="flex mt-2 gap-2">
                 <a
-                  href="https://twitter.com/malayvasa"
+                  href="https://twitter.com/DarshanAdroja"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -88,7 +88,7 @@ export default function AboutSection({setAboutVisible}) {
                   />
                 </a>
                 <a
-                  href="https://www.instagram.com/malayvasa/"
+                  href="https://www.instagram.com/darshanadroja"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -99,7 +99,7 @@ export default function AboutSection({setAboutVisible}) {
                   />
                 </a>
                 <a
-                  href="https://www.malayvasa.com"
+                  href="https://www.darshanadroja.com"
                   target="_blank"
                   rel="noreferrer"
                 >

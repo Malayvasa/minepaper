@@ -49,15 +49,15 @@ export default function PatternPreview({
   return (
     <div className="">
       <div className="container w-full h-full justify-around flex flex-col ">
-        <div className="flex flex-col gap-y-2">
+        <div className="relative flex flex-col gap-y-2">
           <div className="minecraft">Pattern Preview</div>
           {ingredients.length === 0 && (
-            <div className="mine text-xs pb-4 md:hidden">
+            <div className="absolute top-1/3 px-8 mine text-xs z-50 md:hidden">
               Choose items from the Inventory to start crafting your pattern.
             </div>
           )}
           <div className="relative">
-            <div className="previewCanvas overflow-scroll w-[280px] h-[280px] md:w-[500px] md:h-[500px]">
+            <div className=" previewCanvas overflow-scroll w-full h-[280px] md:w-[500px] md:h-[500px]">
               <ReactP5Wrapper
                 sketch={sketch}
                 sketchName={sketchName}
@@ -69,39 +69,45 @@ export default function PatternPreview({
                 height={500}
               />
             </div>
-            <div className="absolute m-4 right-0 bottom-0 flex flex-col items-center">
-              <div
-                id="save"
-                onClick={() => {
-                  handleSave();
-                  handleDownload();
-                }}
-              >
-                <button className=" bg-white minecraft m-1 eightbit-btn p-2 flex justify-center items-center">
-                  Save Pattern
-                </button>
+            <div className="mt-4 md:mt-0 flex w-full justify-evenly">
+              <div className=" md:absolute md:m-4 md:left-0 md:bottom-0">
+                <ColorPicker
+                  backgroundColor={backgroundColor}
+                  onColorSelect={onColorSelect}
+                />
+              </div>
+              <div className="md:absolute md:m-4 md:right-0 md:bottom-0 flex flex-col items-center">
+                <div
+                  id="save"
+                  onClick={() => {
+                    handleSave();
+                    handleDownload();
+                  }}
+                >
+                  <button className=" bg-white minecraft m-1 eightbit-btn p-2 flex justify-center items-center">
+                    Save Pattern
+                  </button>
+                </div>
               </div>
             </div>
-            <div className=" absolute m-4 left-0 bottom-0">
-              <ColorPicker
-                backgroundColor={backgroundColor}
-                onColorSelect={onColorSelect}
-              />
+            <div className='md:hidden w-full text-center mine text-[#555] text-xs mt-6'>
+              Mobile Exports Limited to 1080px * 1080px <br/>
+              Use Desktop/Tablet for Larger Exports
             </div>
           </div>
         </div>
 
-        
         <div className="flex mb-4 flex-col w-full text-center md:text-left">
-        <div className="minecraft">Export Preferences</div>
-        <div className='flex flex-col gap-y-4 md:flex-row w-full items-center justify-between'>
-        <ExportSizeSelector
-            patternSize={patternSize}
-            onCustomSizeChange={onCustomSizeChange}
-          />
-          <PresetSelector onPresetSizeChange={onPresetSizeChange} />
-        </div>
-          
+          <div className="hidden md:block text-[#555] md:mb-2 mine">
+            Export Preferences
+          </div>
+          <div className="hidden md:flex flex-col gap-y-4 md:flex-row w-full items-center justify-between">
+            <ExportSizeSelector
+              patternSize={patternSize}
+              onCustomSizeChange={onCustomSizeChange}
+            />
+            <PresetSelector onPresetSizeChange={onPresetSizeChange} />
+          </div>
         </div>
       </div>
     </div>

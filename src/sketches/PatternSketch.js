@@ -12,6 +12,7 @@ export function sketch(p5) {
   let backgroundColor = '#9191ff';
   let animation = false;
   let title = '';
+  let iconSize = 'medium';
 
   //Grid
   let row, col;
@@ -62,7 +63,14 @@ export function sketch(p5) {
       p5.draw();
     }
     if(props.iconSize){
-      spacing = props.iconSize;
+      iconSize = props.iconSize;
+      if(iconSize == 'small'){
+         preview ? (spacing = 32) : (spacing = 64);
+      }else if(iconSize == 'medium'){
+         preview ? (spacing = 64) : (spacing = 96);
+      }else if(iconSize == 'large'){
+         preview ? (spacing = 96) : (spacing = 128);
+      }
       p5.setup();
       p5.draw();
     }
@@ -71,7 +79,6 @@ export function sketch(p5) {
   const savePNG = () => {
     if (preview === false) {
       let type = 'pattern';
-      let size = 'unknown';
       
       if(id == 1){
         type = 'ring';
@@ -81,15 +88,7 @@ export function sketch(p5) {
         type = 'spiral';
       }
 
-      if(spacing == 32){
-        size = 'small';
-      }else if(spacing == 64){
-        size = 'medium';
-      }else if(spacing == 96){
-        size = 'large';
-      }
-
-      title = "minepaper" + "_" + spacing + "_" + type;
+      title = title + "_" + iconSize + "_" + type;
       p5.saveCanvas(title, 'png');
     }
   };

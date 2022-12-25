@@ -178,8 +178,6 @@
  }
 
 .previewCanvas {
-  margin: 4px;
-  box-sizing: border-box;
   box-shadow: 
       4px -2px 0 0 #000,
       2px -4px 0 0 #000,
