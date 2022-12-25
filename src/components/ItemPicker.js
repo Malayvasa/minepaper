@@ -166,7 +166,7 @@ export default function ItemPicker(props) {
             Inventory
           </div>
           <div
-            className={`mine mb-2 p-1 pl-2 w-[95px] cursor-pointer h-max ${
+            className={`mine mb-2 p-1 pl-2 w-18 cursor-pointer h-max ${
               isPresetVisible ? 'input' : 'text-[#555]'
             }`}
             onClick={() => {
