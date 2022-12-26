@@ -136,7 +136,6 @@ function App() {
         </div>
       </div>
 
-
       <div className=" w-full flex flex-col h-full md:flex-row justify-center gap-8 ">
         <div className="flex flex-col gap-y-8 items-center">
           <div className="container w-full pt-2 pb-4 flex flex-col gap-y-4 md:gap-y-0 md:flex-row gap-x-8 items-center md:items-start">
@@ -186,6 +185,10 @@ function App() {
         <div className="eightbit-btn mt-4 md:mt-0 p-2 text-xs text-[#555]">
           About WallCraft
         </div>
+      </div>
+
+      <div className='md:fixed md:top-0 md:left-0 m-4'>
+      <a href="https://www.producthunt.com/posts/wallcraft?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-wallcraft"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=372457&theme=neutral" alt="WallCraft - Generate&#0032;wallpapers&#0032;and&#0032;patterns&#0032;with&#0032;Minecraft&#0032;icons | Product Hunt" width="250" height="54" /></a>
       </div>
 
       <div className=" hidden ">
