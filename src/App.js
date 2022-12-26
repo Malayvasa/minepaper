@@ -20,11 +20,10 @@ function App() {
   const [patternSize, setPatternSize] = useState({ width: 1080, height: 1080 });
   const [downloadCount, setDownloadCount] = useState('xxx');
   const [aboutVisible, setAboutVisible] = useState(false);
-  const {REACT_APP_KEY} = process.env;
+  const {REACT_APP_HIT,REACT_APP_GET} = process.env;
 
   useEffect(() => {
-    const url = `https://api.countapi.xyz/get/wallcraftapp/${REACT_APP_KEY}`;
-    fetch(url)
+    fetch(REACT_APP_GET)
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
@@ -33,7 +32,7 @@ function App() {
   }, []);
 
   const handleDownload = () => {
-    fetch(`https://api.countapi.xyz/update/wallcraftapp/${REACT_APP_KEY}/?amount=1`)
+    fetch(REACT_APP_HIT)
       .then((res) => res.json())
       .then((res) => {
         setDownloadCount(res.value);
