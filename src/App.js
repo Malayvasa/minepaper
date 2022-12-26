@@ -20,23 +20,22 @@ function App() {
   const [patternSize, setPatternSize] = useState({ width: 1080, height: 1080 });
   const [downloadCount, setDownloadCount] = useState('xxx');
   const [aboutVisible, setAboutVisible] = useState(false);
+  const {REACT_APP_KEY} = process.env;
 
   useEffect(() => {
-    const countEl = document.getElementById('count');
-    fetch('https://api.countapi.xyz/get/wallcraft/download')
+    const url = `https://api.countapi.xyz/get/wallcraftapp/${REACT_APP_KEY}`;
+    fetch(url)
       .then((res) => res.json())
       .then((res) => {
-        countEl.innerHTML = res.value;
+        console.log(res);
         setDownloadCount(res.value);
       });
   }, []);
 
   const handleDownload = () => {
-    fetch('https://api.countapi.xyz/update/wallcraft/download/?amount=1')
+    fetch(`https://api.countapi.xyz/update/wallcraftapp/${REACT_APP_KEY}/?amount=1`)
       .then((res) => res.json())
       .then((res) => {
-        const countEl = document.getElementById('count');
-        countEl.innerHTML = res.value;
         setDownloadCount(res.value);
       });
   };
@@ -131,7 +130,7 @@ function App() {
       <div className="relative w-[300px] md:w-[500px] mb-4 md:mb-0 pb-8">
         <img src={Title} alt="logo" />
         <div className="mine flex gap-x-2 top-3/4 -mt-6 -mr-8 -rotate-12 right-0 absolute title text-md md:text-xl text-[#F4F739]">
-          <div>521</div>
+          <div>{downloadCount}</div>
           <div>Downloads!</div>
         </div>
       </div>
