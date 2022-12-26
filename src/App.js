@@ -131,7 +131,7 @@ function App() {
       <div className="relative w-[300px] md:w-[500px] mb-4 md:mb-0 pb-8">
         <img src={Title} alt="logo" />
         <div className="mine flex gap-x-2 top-3/4 -mt-6 -mr-8 -rotate-12 right-0 absolute title text-md md:text-xl text-[#F4F739]">
-          <div id="count">{downloadCount}</div>
+          <div>521</div>
           <div>Downloads!</div>
         </div>
       </div>
