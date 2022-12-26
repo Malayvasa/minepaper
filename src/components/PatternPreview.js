@@ -21,7 +21,7 @@ export default function PatternPreview({
   onCustomSizeChange,
   onPresetSizeChange,
   onExport,
-  onDownload,
+  // onDownload,
 }) {
   const [craft] = useSound(LevelUp, { volume: 0.45 });
 
@@ -43,7 +43,7 @@ export default function PatternPreview({
   };
 
   const handleDownload = () => {
-    onDownload();
+    // onDownload();
   };
 
   return (
@@ -81,7 +81,7 @@ export default function PatternPreview({
                   id="save"
                   onClick={() => {
                     handleSave();
-                    handleDownload();
+                    // handleDownload();
                   }}
                 >
                   <button className=" bg-white minecraft m-1 eightbit-btn p-2 flex justify-center items-center">

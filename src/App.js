@@ -20,24 +20,24 @@ function App() {
   const [patternSize, setPatternSize] = useState({ width: 1080, height: 1080 });
   const [downloadCount, setDownloadCount] = useState('xxx');
   const [aboutVisible, setAboutVisible] = useState(false);
-  const {REACT_APP_HIT,REACT_APP_GET} = process.env;
+  // const {REACT_APP_HIT,REACT_APP_GET} = process.env;
 
-  useEffect(() => {
-    fetch(REACT_APP_GET)
-      .then((res) => res.json())
-      .then((res) => {
-        console.log(res);
-        setDownloadCount(res.value);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch(REACT_APP_GET)
+  //     .then((res) => res.json())
+  //     .then((res) => {
+  //       console.log(res);
+  //       setDownloadCount(res.value);
+  //     });
+  // }, []);
 
-  const handleDownload = () => {
-    fetch(REACT_APP_HIT)
-      .then((res) => res.json())
-      .then((res) => {
-        setDownloadCount(res.value);
-      });
-  };
+  // const handleDownload = () => {
+  //   fetch(REACT_APP_HIT)
+  //     .then((res) => res.json())
+  //     .then((res) => {
+  //       setDownloadCount(res.value);
+  //     });
+  // };
 
   const handleItemSelect = (name) => {
     if (selectedIngredients.length >= 9) {
@@ -129,7 +129,7 @@ function App() {
       <div className="relative w-[300px] md:w-[500px] mb-4 md:mb-0 pb-8">
         <img src={Title} alt="logo" />
         <div className="mine flex gap-x-2 top-3/4 -mt-6 -mr-8 -rotate-12 right-0 absolute title text-md md:text-xl text-[#F4F739]">
-          <div>{downloadCount}</div>
+          <div>500+</div>
           <div>Downloads!</div>
         </div>
       </div>
@@ -169,7 +169,6 @@ function App() {
           onPresetSizeChange={handlePresetPatternSize}
           patternSize={patternSize}
           onExport={exportPreset}
-          onDownload={handleDownload}
         />
       </div>
 
