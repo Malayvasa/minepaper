@@ -52,7 +52,7 @@ export default function PatternPreview({
         <div className="relative flex flex-col gap-y-2">
           <div className="minecraft">Pattern Preview</div>
           {ingredients.length === 0 && (
-            <div className="absolute top-1/3 px-8 mine text-xs z-50 md:hidden">
+            <div className="absolute top-1/3 px-8 mine text-xs z-10 md:hidden">
               Choose items from the Inventory to start crafting your pattern.
             </div>
           )}

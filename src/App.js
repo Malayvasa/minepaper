@@ -185,7 +185,7 @@ function App() {
       </div>
 
       <div className='md:fixed md:top-0 md:left-0 m-4'>
-      <a href="https://www.producthunt.com/posts/wallcraft?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-wallcraft"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=372457&theme=neutral" alt="WallCraft - Generate&#0032;wallpapers&#0032;and&#0032;patterns&#0032;with&#0032;Minecraft&#0032;icons | Product Hunt" width="250" height="54" /></a>
+      <a href="https://www.producthunt.com/posts/wallcraft?utm_source=badge-top-post-badge&utm_medium=badge&utm_souce=badge-wallcraft"><img src="https://api.producthunt.com/widgets/embed-image/v1/top-post-badge.svg?post_id=372457&theme=light&period=daily" alt="WallCraft - Generate&#0032;wallpapers&#0032;and&#0032;patterns&#0032;with&#0032;Minecraft&#0032;icons | Product Hunt" width="250" /></a>
       </div>
 
       <div className=" hidden ">
