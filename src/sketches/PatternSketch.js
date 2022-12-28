@@ -62,14 +62,14 @@ export function sketch(p5) {
       p5.setup();
       p5.draw();
     }
-    if(props.iconSize){
+    if (props.iconSize) {
       iconSize = props.iconSize;
-      if(iconSize == 'small'){
-         preview ? (spacing = 32) : (spacing = 64);
-      }else if(iconSize == 'medium'){
-         preview ? (spacing = 64) : (spacing = 96);
-      }else if(iconSize == 'large'){
-         preview ? (spacing = 96) : (spacing = 128);
+      if (iconSize == 'small') {
+        preview ? (spacing = 32) : (spacing = 64);
+      } else if (iconSize == 'medium') {
+        preview ? (spacing = 64) : (spacing = 96);
+      } else if (iconSize == 'large') {
+        preview ? (spacing = 96) : (spacing = 128);
       }
       p5.setup();
       p5.draw();
@@ -79,16 +79,16 @@ export function sketch(p5) {
   const savePNG = () => {
     if (preview === false) {
       let type = 'pattern';
-      
-      if(id == 1){
+
+      if (id == 1) {
         type = 'ring';
-      }else if(id ==2){
+      } else if (id == 2) {
         type = 'grid';
-      }else if(id ==3){
+      } else if (id == 3) {
         type = 'spiral';
       }
 
-      title = title + "_" + iconSize + "_" + type;
+      title = title + '_' + iconSize + '_' + type;
       p5.saveCanvas(title, 'png');
     }
   };
@@ -98,18 +98,19 @@ export function sketch(p5) {
     p5.imageMode(p5.CENTER);
     p5.angleMode(p5.DEGREES);
     p5.frameRate(10);
+    p5.pixelDensity(1);
 
     row = p5.floor(p5.width / spacing);
     col = p5.floor(p5.height / spacing);
 
-    if(icons.length % 2 === 0){
-    if (row % 2 === 0) {
-      row = row - 1;
+    if (icons.length % 2 === 0) {
+      if (row % 2 === 0) {
+        row = row - 1;
+      }
+      if (col % 2 === 0) {
+        col = col - 1;
+      }
     }
-    if (col % 2 === 0) {
-      col = col - 1;
-    }
-  }
     xgap = p5.width / row;
     ygap = p5.height / col;
 
@@ -120,7 +121,7 @@ export function sketch(p5) {
   };
 
   const drawGrid = (anim) => {
-    p5.translate(xgap/2,ygap/2);
+    p5.translate(xgap / 2, ygap / 2);
     for (let j = 0; j < row; j++) {
       for (let k = 0; k < col; k++) {
         let pos = p5.int(j + k * row);
@@ -128,7 +129,13 @@ export function sketch(p5) {
         let i = pos % icons.length;
 
         //text(pos,j*32,k*32);
-        p5.image(icons[(i + anim)%icons.length], j * xgap, k * ygap, spacing / 2, spacing / 2);
+        p5.image(
+          icons[(i + anim) % icons.length],
+          j * xgap,
+          k * ygap,
+          spacing / 2,
+          spacing / 2
+        );
       }
     }
   };
@@ -137,12 +144,11 @@ export function sketch(p5) {
     let x = 1;
     let max;
     p5.translate(p5.width / 2, p5.height / 2);
-    p5.image(icons[(anim)%icons.length], 0, 0, spacing / 2, spacing / 2);
+    p5.image(icons[anim % icons.length], 0, 0, spacing / 2, spacing / 2);
 
-    if(p5.width > p5.height){
+    if (p5.width > p5.height) {
       max = p5.width;
-    }
-    else{
+    } else {
       max = p5.height;
     }
 
@@ -150,7 +156,13 @@ export function sketch(p5) {
       let q = p5.int(x % icons.length);
       for (let k = 0; k < x * 6; k++) {
         p5.rotate(360 / (x * 6));
-        p5.image(icons[(q + anim)%icons.length], 0, j, spacing / 2, spacing / 2);
+        p5.image(
+          icons[(q + anim) % icons.length],
+          0,
+          j,
+          spacing / 2,
+          spacing / 2
+        );
       }
       x = x + 1;
     }
@@ -171,10 +183,22 @@ export function sketch(p5) {
       p5.push();
       for (let i = 5; i < p5.width; i++) {
         p5.rotate(360 / 60);
-        if(preview === true){
-        p5.image(icons[(pos + anim)%icons.length], 7.5 * i, 10 * i, 1.2 * i, 1.2 * i);}
-        else{
-          p5.image(icons[(pos + anim)%icons.length], 7.5 * i, 10 * i, 0.8 * i, 0.8 * i);
+        if (preview === true) {
+          p5.image(
+            icons[(pos + anim) % icons.length],
+            7.5 * i,
+            10 * i,
+            1.2 * i,
+            1.2 * i
+          );
+        } else {
+          p5.image(
+            icons[(pos + anim) % icons.length],
+            7.5 * i,
+            10 * i,
+            0.8 * i,
+            0.8 * i
+          );
         }
       }
       p5.pop();
@@ -186,7 +210,7 @@ export function sketch(p5) {
 
   p5.draw = () => {
     if (icons.length === 0 && preview === true) {
-      p5.background(backgroundColor);      
+      p5.background(backgroundColor);
     } else if (icons.length > 0) {
       p5.background(backgroundColor);
       if (id === 1) {
@@ -195,28 +219,24 @@ export function sketch(p5) {
         drawGrid(a);
       } else if (id === 3) {
         drawSpiral(a);
-      }
-       else {
+      } else {
         p5.text(id, 10, 10, 32, 32);
       }
     }
-    if(animation === false){
+    if (animation === false) {
       p5.noLoop();
-    }else{
+    } else {
       a++;
     }
-   
   };
 
   var el = document.getElementById('save');
   if (el) {
-    el.addEventListener('click', 
-    () => {
-      if(preview === false){
-      savePNG();
-      console.log('Image Saved');
+    el.addEventListener('click', () => {
+      if (preview === false) {
+        savePNG();
+        console.log('Image Saved');
       }
-    }
-    );
+    });
   }
 }
