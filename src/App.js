@@ -120,17 +120,12 @@ function App() {
 
   return (
     <div className="flex flex-col items-center justify-evenly p-8 h-auto md:min-h-screen w-screen back overflow-hidden">
-
-{aboutVisible && (
-        
-          <AboutSection setAboutVisible={setAboutVisible} />
-      )}
+      {aboutVisible && <AboutSection setAboutVisible={setAboutVisible} />}
 
       <div className="relative w-[300px] md:w-[500px] mb-4 md:mb-0 pb-8">
         <img src={Title} alt="logo" />
         <div className="mine flex gap-x-2 top-3/4 -mt-6 -mr-8 -rotate-12 right-0 absolute title text-md md:text-xl text-[#F4F739]">
-          <div>500+</div>
-          <div>Downloads!</div>
+          <div>Happy New Year!</div>
         </div>
       </div>
 
@@ -184,8 +179,14 @@ function App() {
         </div>
       </div>
 
-      <div className='md:fixed md:top-0 md:left-0 m-4'>
-      <a href="https://www.producthunt.com/posts/wallcraft?utm_source=badge-top-post-badge&utm_medium=badge&utm_souce=badge-wallcraft"><img src="https://api.producthunt.com/widgets/embed-image/v1/top-post-badge.svg?post_id=372457&theme=light&period=daily" alt="WallCraft - Generate&#0032;wallpapers&#0032;and&#0032;patterns&#0032;with&#0032;Minecraft&#0032;icons | Product Hunt" width="250" /></a>
+      <div className="md:fixed md:top-0 md:left-0 m-4">
+        <a href="https://www.producthunt.com/posts/wallcraft?utm_source=badge-top-post-badge&utm_medium=badge&utm_souce=badge-wallcraft">
+          <img
+            src="https://api.producthunt.com/widgets/embed-image/v1/top-post-badge.svg?post_id=372457&theme=light&period=daily"
+            alt="WallCraft - Generate&#0032;wallpapers&#0032;and&#0032;patterns&#0032;with&#0032;Minecraft&#0032;icons | Product Hunt"
+            width="250"
+          />
+        </a>
       </div>
 
       <div className=" hidden ">
