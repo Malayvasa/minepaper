@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'MinecraftiaRegular';
+  src: url("../public/OpenMine.ttf");
+}
+
 :root {
     --slot-size: 50px;
     --mobile-slot-size: 20px;
@@ -130,11 +135,13 @@
     color: #555;
     display: inline-block;
     line-height: 30px;
+    font-size: 28px;
     margin-top: 0;
   }
 
   .mine {
     font-family: 'MinecraftiaRegular';
+    font-size: 28px;
   }
 
   .eightbit-btn {
@@ -144,6 +151,7 @@
     text-align: center;
     font-family: 'MinecraftiaRegular';
     text-decoration: none;
+    font-size: 28px;
     box-shadow: inset -2px -2px 0px 0px #555555;
  }
   .eightbit-btn:hover, .eightbit-btn:focus {
